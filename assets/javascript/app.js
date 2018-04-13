@@ -5,6 +5,8 @@ $(document).ready(function () {
   var correct = 0;
   var incorrect = 0;
   var userValue;
+
+  // object that contains everything needed for the game
   var trivia = {
     items: [{
         question: "What is Dartmouth's Mascot?",
@@ -91,7 +93,7 @@ $(document).ready(function () {
     }
   }
 
-  //first on click starts the game, second on click 
+  //on click functions that determine game start, how to handle the selected answers, and reset the game
 
   $("body").on("click", "#gameStart", function () {
     $("#time").html("<p> Time Remaining: <span id='timer'> " + number + "</span></p>");
