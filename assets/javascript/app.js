@@ -2,7 +2,6 @@ $(document).ready(function () {
   var number = 15;
   var x;
   var count = 0;
-  var userGuess;
   var correct = 0;
   var incorrect = 0;
   var userValue;
