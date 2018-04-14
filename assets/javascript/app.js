@@ -82,7 +82,7 @@ $(document).ready(function () {
     },
     displayConfirm: function () {
       trivia.stop();
-      $(".main").html("<p class='answer'>Correct Answer " + correct + "<p class='answer'>Incorrect Answer " + incorrect + "<p class='answer'>");
+      $(".main").html("<p>Correct Answer " + correct + "</p><p>Incorrect Answer " + incorrect + "</p>");
       $(".main").append("<button id='reset'>Start Over</button>");
     },
     resetGame: function () {
