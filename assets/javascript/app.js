@@ -5,6 +5,7 @@ $(document).ready(function () {
   var correct = 0;
   var incorrect = 0;
   var userValue;
+  var main = $(".main");
 
   // object that contains everything needed for the game
   var trivia = {
@@ -41,7 +42,7 @@ $(document).ready(function () {
     setTimer: function () {
       number = 15
       $("#time").html("<p> Time Remaining: <span id='timer'> " + number + "</span></p>");
-      clearInterval(x);
+      trivia.stop();
       x = setInterval(trivia.countdown, 1000);
     },
     countdown: function () {
@@ -60,21 +61,21 @@ $(document).ready(function () {
         trivia.displayConfirm();
       } else {
         trivia.setTimer();
-        $(".main").html("<h2 id='question'>" + trivia.items[count].question + "</h2>" + "<p class='answer' data-value='a'>" + trivia.items[count].answers[0] + "<p class='answer' data-value='b'>" + trivia.items[count].answers[1] + "<p class='answer' data-value='c'>" + trivia.items[count].answers[2] + "<p class='answer' data-value='d'>" + trivia.items[count].answers[3] + "</p>");
+        $(main).html("<h1 id='question'>" + trivia.items[count].question + "</h1>" + "<p class='answer' data-value='a'>" + trivia.items[count].answers[0] + "<p class='answer' data-value='b'>" + trivia.items[count].answers[1] + "<p class='answer' data-value='c'>" + trivia.items[count].answers[2] + "<p class='answer' data-value='d'>" + trivia.items[count].answers[3] + "</p>");
       }
     },
     displayAnswer: function () {
       if (userValue == trivia.items[count].answer[0]) {
-        $(".main").html("Correct Answer");
-        $(".main").append("<p>" + trivia.items[count].image + "</p>");
+        $(main).html("Correct Answer");
+        $(main).append("<p>" + trivia.items[count].image + "</p>");
         correct++;
       } else if (number === 0) {
-        $(".main").html("Out of Time");
-        $(".main").append("<p>The correct answer was: " + trivia.items[count].answer[1] + "</p><p>" + trivia.items[count].image + "</p>");
+        $(main).html("Out of Time");
+        $(main).append("<p>The correct answer was: " + trivia.items[count].answer[1] + "</p><p>" + trivia.items[count].image + "</p>");
         incorrect++;
       } else if (userValue !== trivia.items[count].answer[0]) {
-        $(".main").html("Not the Correct Answer");
-        $(".main").append("<p>The correct answer was: " + trivia.items[count].answer[1] + "</p><p>" + trivia.items[count].image + "</p>");
+        $(main).html("Not the Correct Answer");
+        $(main).append("<p>The correct answer was: " + trivia.items[count].answer[1] + "</p><p>" + trivia.items[count].image + "</p>");
         incorrect++;
       }
       count++;
@@ -82,8 +83,8 @@ $(document).ready(function () {
     },
     displayConfirm: function () {
       trivia.stop();
-      $(".main").html("<p>Correct Answer " + correct + "</p><p>Incorrect Answer " + incorrect + "</p>");
-      $(".main").append("<button id='reset'>Start Over</button>");
+      $(main).html("<p>Correct Answer " + correct + "</p><p>Incorrect Answer " + incorrect + "</p>");
+      $(main).append("<button class='btn btn-lg' id='reset'>Start Over</button>");
     },
     resetGame: function () {
       count = 0;

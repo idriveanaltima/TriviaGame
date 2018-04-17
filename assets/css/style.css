@@ -5,8 +5,8 @@
 }
 
 body {
-  background: url("../images/background.jpg");
-  background-size: cover;
+  background: linear-gradient(rgb(5, 5, 36), rgb(5, 5, 90), rgb(5, 5, 36));
+
 }
 
 .page {
@@ -14,9 +14,19 @@ body {
   margin-top: 65px;
 }
 
-.main,
-#time {
+.main {
   color: white;
-  padding: 25px;
+  padding: 20px;
   font-size: 24px;
+}
+
+#time {
+  padding: 5px;
+  font-size: 24px;
+  color: rgb(121, 22, 52);
+}
+
+h1 {
+  font-size: 36px;
+  color:  rgb(121, 22, 52);
 }
